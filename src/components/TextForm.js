@@ -60,12 +60,12 @@ export default function TextForm({heading="default heading value",mode,showAlert
           onChange={handleOnChange}
         ></textarea>
       </div>
-      <button className="btn btn-info mx-2 my-2" onClick={handleUpClick}>Convert to upper case</button>
-      <button className="btn btn-info mx-2 my-2" onClick={handleLoClick}>Convert to lower case</button>
-      <button className="btn btn-info mx-2 my-2" onClick={handleCleareClick}>Cleare text</button>
-      <button className="btn btn-info mx-2 my-2" onClick={handleItalicClick}>Convert to Italic</button>
-      <button className="btn btn-info mx-2 my-2" onClick={handleCopy}>Copy Text</button>
-      <button className="btn btn-info mx-2 my-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+      <button disabled={text.length === 0} className="btn btn-info mx-2 my-2" onClick={handleUpClick}>Convert to upper case</button>
+      <button disabled={text.length === 0}  className="btn btn-info mx-2 my-2" onClick={handleLoClick}>Convert to lower case</button>
+      <button disabled={text.length === 0}  className="btn btn-info mx-2 my-2" onClick={handleCleareClick}>Cleare text</button>
+      <button disabled={text.length === 0}  className="btn btn-info mx-2 my-2" onClick={handleItalicClick}>Convert to Italic</button>
+      <button disabled={text.length === 0}  className="btn btn-info mx-2 my-2" onClick={handleCopy}>Copy Text</button>
+      <button disabled={text.length === 0}  className="btn btn-info mx-2 my-2" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
     </div>
 
     <div className="container my-3" style={{color: mode === "light" ? "black" : "white"}}>
@@ -74,7 +74,7 @@ export default function TextForm({heading="default heading value",mode,showAlert
       <p>{0.008 *  text.split(' ').filter((element)=>{return element.length !==0 }).length} Minutes read </p>
 
       <h3>Preview</h3>
-      <p>{text.length > 0 ? text : 'Enter something to preview it here'}</p>
+      <p>{text.length > 0 ? text : "Nothing to preview!"}</p>
     </div>
 
     </>);
