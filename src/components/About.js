@@ -1,37 +1,23 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 
-export default function About() {
+export default function About({mode}) {
 
 
-    const [myStyle,setMyStyle] = useState({
-        color: 'black',
-        backgroundColor: 'white'
-    }
-)
+//     const [myStyle,setMyStyle] = useState({
+//         color: 'black',
+//         backgroundColor: 'white'
+//     }
+// )
 
-    const [btnText,setBtnText] = useState('Enable Dark Mood')
+  let myStyle = {
+    color : mode === 'dark' ? 'white' : '#042743',
+    backgroundColor : mode === 'dark'?'rgb(36 74 104)':'white',
+  }
 
-    const toggleStyle = () => {
-        if(myStyle.color ===  'black'){
-            setMyStyle({
-                color: 'white',
-                backgroundColor: 'black',
-                border: '2px solid black'
-            })
-            setBtnText('Enable Light Mood')
-
-        }else{
-            setMyStyle({
-            color: 'black',
-            backgroundColor: 'white'
-        })
-        setBtnText('Enable Dark Mood')
-    }
-    }
 
   return (
-    <div className="container"  style={myStyle}>
-        <h1 className="my-3">About Us</h1>
+    <div className="container">
+        <h1 className="my-3" style={{color : mode === 'dark' ? 'white' : '#042743'}}>About Us</h1>
       <div className="accordion" id="accordionExample" style={myStyle}>
         <div className="accordion-item" >
           <h2 className="accordion-header">
@@ -44,7 +30,7 @@ export default function About() {
               aria-controls="collapseOne"
               style={myStyle}
             >
-              Analyze Your Text
+             <strong>Analyze Your Text</strong> 
             </button>
           </h2>
           <div
@@ -68,7 +54,7 @@ export default function About() {
               aria-controls="collapseTwo"
               style={myStyle}
             >
-              Free to use
+              <strong>Free to use</strong>
             </button>
           </h2>
           <div
@@ -92,7 +78,7 @@ export default function About() {
               aria-controls="collapseThree"
               style={myStyle}
             >
-              Browser Compatible
+              <strong>Browser Compatible</strong>
             </button>
           </h2>
           <div
