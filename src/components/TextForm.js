@@ -52,7 +52,7 @@ export default function TextForm({heading="default heading value",mode,showAlert
     <div className="container" style={{color: mode === "light" ? "black" : "white"}}> 
         <h1>{heading}</h1>
       <div className="mb-3">
-        <textarea style={{ fontStyle: italic ? "italic" : "normal",backgroundColor: mode === "light" ? "white" : "grey",color: mode === "light" ? "black" : "white"}}
+        <textarea style={{ fontStyle: italic ? "italic" : "normal",backgroundColor: mode === "light" ? "white" : "#13466e",color: mode === "light" ? "black" : "white"}}
           className="form-control"
           id="myBox"
           rows="9"
@@ -71,7 +71,7 @@ export default function TextForm({heading="default heading value",mode,showAlert
     <div className="container my-3" style={{color: mode === "light" ? "black" : "white"}}>
       <h2>Your text summary</h2>
       <p>{text.split(' ').filter((element)=>{return element.length !==0 }).length } words, {text.length} charachteres </p>
-      <p>{0.008 *  text.split(' ').length} Minutes read </p>
+      <p>{0.008 *  text.split(' ').filter((element)=>{return element.length !==0 }).length} Minutes read </p>
 
       <h3>Preview</h3>
       <p>{text.length > 0 ? text : 'Enter something to preview it here'}</p>
