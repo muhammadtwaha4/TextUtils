@@ -2,3 +2,7 @@
 body{
     background-color: #e5eeff ;
 }
+
+.accordion-button::after {
+    filter: invert(1);
+}

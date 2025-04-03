@@ -32,9 +32,7 @@ export default function TextForm({heading="default heading value",mode,showAlert
     }
 
     const handleCopy = () => {
-      let text = document.getElementById('myBox');
-      text.select();
-      navigator.clipboard.writeText(text.value);
+      navigator.clipboard.writeText(text);
       showAlert('Text copied!', 'success')
     }
 
@@ -70,7 +68,7 @@ export default function TextForm({heading="default heading value",mode,showAlert
 
     <div className="container my-3" style={{color: mode === "light" ? "black" : "white"}}>
       <h2>Your text summary</h2>
-      <p>{text.split(' ').filter((element)=>{return element.length !==0 }).length } words, {text.length} charachteres </p>
+      <p>{text.split(/\s+/).filter((element)=>{return element.length !==0 }).length } words, {text.length} charachteres </p>
       <p>{0.008 *  text.split(' ').filter((element)=>{return element.length !==0 }).length} Minutes read </p>
 
       <h3>Preview</h3>
